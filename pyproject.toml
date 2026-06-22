@@ -1,0 +1,28 @@
+[project]
+name = "thesis-pillar-tracker"
+version = "0.1.0"
+description = "Monthly thesis pillar evidence logs and review artifacts."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "AthenaTheOwl" }]
+dependencies = []
+
+[project.scripts]
+tpt = "thesis_pillar_tracker.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["thesis_pillar_tracker*"]
