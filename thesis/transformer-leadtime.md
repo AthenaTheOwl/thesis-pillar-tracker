@@ -11,7 +11,6 @@ status: active
 
 ## Evidence log
 
-- 2026-04-30 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
-- 2026-05-31 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
 - 2026-06-21 NEUTRAL [scaffold] - initial pillar created; no public-event evidence logged yet
-
+- 2026-04-14 CONFIRMS [utility procurement disclosure] - large power transformer lead times quoted beyond two years, exceeding data-center build schedules
+- 2026-05-30 CONFIRMS [transformer manufacturer earnings] - order backlog extended; no lead-time relief signalled before late 2027

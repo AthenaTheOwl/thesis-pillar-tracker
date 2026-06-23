@@ -11,7 +11,6 @@ status: active
 
 ## Evidence log
 
-- 2026-04-30 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
-- 2026-05-31 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
 - 2026-06-21 NEUTRAL [scaffold] - initial pillar created; no public-event evidence logged yet
-
+- 2026-04-10 CONFIRMS [PJM base residual auction] - 2027/28 capacity cleared well above the prior low-price regime on data-center load
+- 2026-05-28 WEAKENS [FERC market filing] - proposed price-formation reforms could cap future capacity clears below scarcity levels

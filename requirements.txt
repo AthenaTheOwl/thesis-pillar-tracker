@@ -1,0 +1,5 @@
+# Streamlit Community Cloud reads this file. The app (streamlit_app.py) reads the
+# committed thesis/*.md directly but imports the local package for its model +
+# scoring, so it needs streamlit plus this repo installed (the `.` line).
+streamlit>=1.40
+.

@@ -8,10 +8,12 @@ from thesis_pillar_tracker.model import (
     ArtifactError,
     create_pillar,
     create_quarterly_snapshot,
+    load_pillars,
 )
 from thesis_pillar_tracker.scoring import (
     append_evidence,
     create_monthly_review,
+    rank_pillars,
 )
 
 
@@ -61,6 +63,13 @@ def build_parser() -> argparse.ArgumentParser:
     validate = subparsers.add_parser("validate", help="run pillar schema validation")
     add_root(validate)
     validate.set_defaults(func=cmd_validate)
+
+    show = subparsers.add_parser(
+        "show",
+        help="print a ranked, readable standing of the thesis pillars",
+    )
+    add_root(show)
+    show.set_defaults(func=cmd_show)
 
     return parser
 
@@ -119,6 +128,50 @@ def cmd_quarterly_snapshot(args: argparse.Namespace) -> int:
         force=args.force,
     )
     print(path)
+    return 0
+
+
+def cmd_show(args: argparse.Namespace) -> int:
+    """Read the committed pillars and print a ranked standing (no args needed)."""
+    pillars = load_pillars(Path(args.root))
+    if not pillars:
+        print("no pillars found under thesis/ — run `tpt new-pillar` first.")
+        return 0
+    standings = rank_pillars(pillars)
+
+    print("thesis pillar standing - ranked by how strongly accepted evidence")
+    print("still backs each constraint (CONFIRMS +1, WEAKENS -1, INVALIDATES -2)\n")
+
+    header = (
+        f"{'#':>2}  {'pillar':<22} {'standing':<15} "
+        f"{'score':>5} {'evid':>4} {'latest':<11} title"
+    )
+    print(header)
+    print("-" * len(header))
+    for index, standing in enumerate(standings, start=1):
+        print(
+            f"{index:>2}  "
+            f"{standing.id[:22]:<22} "
+            f"{standing.standing:<15} "
+            f"{standing.score:>+5} "
+            f"{len(standing.real_evidence):>4} "
+            f"{standing.latest_verdict:<11} "
+            f"{standing.title[:48]}"
+        )
+
+    strongest = standings[0]
+    weakest = standings[-1]
+    print(
+        f"\nstrongest constraint: {strongest.id} "
+        f"({strongest.standing}, score {strongest.score:+d} from "
+        f"{len(strongest.real_evidence)} evidence rows)."
+    )
+    if weakest.score < 0:
+        print(
+            f"watch: {weakest.id} is {weakest.standing} "
+            f"(score {weakest.score:+d}); latest evidence {weakest.latest_verdict}. "
+            "review before next monthly close."
+        )
     return 0
 
 

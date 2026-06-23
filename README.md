@@ -25,6 +25,33 @@ python scripts/spec_check.py
 python scripts/validate_pillar_schema.py
 ```
 
+## show
+
+`tpt show` reads the committed pillars and prints a ranked standing - how
+strongly the accepted evidence still backs each constraint - plus a headline
+on the strongest pillar and any pillar to watch. read-only, offline.
+
+```bash
+uv run tpt show
+```
+
+## live demo
+
+A root `streamlit_app.py` renders the same ranked standing as an interactive
+page: metrics, a ranked table, a headline callout, and a per-pillar evidence
+inspector. It reads the committed `thesis/*.md` directly - no network, no secrets.
+
+Run locally:
+
+```bash
+uv run --with streamlit streamlit run streamlit_app.py
+```
+
+Deploy on Streamlit Community Cloud: New app -> repo
+`AthenaTheOwl/thesis-pillar-tracker`, branch `main`, main file `streamlit_app.py`.
+
+<!-- live-url: (add the Streamlit Community Cloud URL here once deployed) -->
+
 ## CLI Examples
 
 ```bash

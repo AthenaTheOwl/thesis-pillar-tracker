@@ -11,7 +11,7 @@ status: active
 
 ## Evidence log
 
-- 2026-04-30 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
-- 2026-05-31 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
 - 2026-06-21 NEUTRAL [scaffold] - initial pillar created; no public-event evidence logged yet
-
+- 2026-04-18 CONFIRMS [TSMC 2026Q1 earnings call] - management reiterated advanced packaging capacity sold out through 2027 with demand still exceeding supply
+- 2026-05-09 CONFIRMS [supplier channel checks] - CoWoS-L tool installs slip one quarter, keeping committed accelerator demand above capacity
+- 2026-06-12 WEAKENS [TSMC capex update] - 2027 advanced-packaging capacity guidance raised, narrowing the gap to committed demand

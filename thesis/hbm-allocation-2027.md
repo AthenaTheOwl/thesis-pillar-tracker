@@ -11,7 +11,7 @@ status: active
 
 ## Evidence log
 
-- 2026-04-30 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
-- 2026-05-31 NEUTRAL [scaffold] - placeholder period; no public-event evidence logged yet
 - 2026-06-21 NEUTRAL [scaffold] - initial pillar created; no public-event evidence logged yet
-
+- 2026-04-22 CONFIRMS [SK hynix 2026Q1 results] - HBM3E fully allocated for 2026 and pre-sold into 2027; no spot availability
+- 2026-05-15 CONFIRMS [Micron investor day] - HBM bit supply guided tight through 2027 against committed accelerator ramps
+- 2026-06-03 NEUTRAL [Samsung qualification news] - second HBM4 source progresses but not yet shipping at volume; allocation picture unchanged
