@@ -194,6 +194,26 @@ def test_show_on_committed_repo_runs_offline() -> None:
     assert "strongest constraint:" in result.stdout
 
 
+def test_show_reports_missing_frontmatter_key(tmp_path: Path, capsys) -> None:
+    # A committed pillar whose frontmatter omits `id` must not crash `show` with a
+    # raw KeyError; it exits 2 with an ArtifactError naming the missing field.
+    thesis_dir = tmp_path / "thesis"
+    thesis_dir.mkdir(parents=True)
+    (thesis_dir / "nokey.md").write_text(
+        "---\n"
+        "title: No id pillar\n"
+        "status: active\n"
+        "---\n\n"
+        "## Evidence log\n\n"
+        "- 2026-06-01 NEUTRAL [scaffold] - placeholder\n",
+        encoding="utf-8",
+    )
+    assert main(["show", "--root", str(tmp_path)]) == 2
+    err = capsys.readouterr().err
+    assert "ERROR:" in err
+    assert "id" in err
+
+
 def test_quarterly_snapshot_refuses_overwrite_without_force(tmp_path: Path) -> None:
     args = [
         "quarterly-snapshot",
