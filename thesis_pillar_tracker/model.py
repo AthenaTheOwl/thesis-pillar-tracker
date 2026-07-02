@@ -175,6 +175,11 @@ def create_pillar(
     return path
 
 
+# Keys the Pillar accessors read; a file missing any of these would raise a raw
+# KeyError deep in a consumer (e.g. `show`), so we catch it here at read time.
+PILLAR_REQUIRED_KEYS = ("id", "title", "status")
+
+
 def load_pillars(root: Path) -> list[Pillar]:
     thesis_dir = root / "thesis"
     if not thesis_dir.exists():
@@ -182,6 +187,9 @@ def load_pillars(root: Path) -> list[Pillar]:
     pillars: list[Pillar] = []
     for path in sorted(thesis_dir.glob("*.md")):
         data, body = parse_frontmatter(path.read_text(encoding="utf-8"))
+        missing = [key for key in PILLAR_REQUIRED_KEYS if key not in data]
+        if missing:
+            raise ArtifactError(f"{path}: missing fields: {', '.join(missing)}")
         pillars.append(Pillar(path=path, data=data, body=body))
     return pillars
 
