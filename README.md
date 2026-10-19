@@ -132,10 +132,10 @@ thesis-pillar-tracker/
   STATUS.md
 ```
 
-## License
-
-MIT. See LICENSE.
-
 ## Method update
 
 [October method update: Repeated reports of one event are one evidential lineage](docs/evidence-independence.md).
+
+## License
+
+MIT. See LICENSE.
