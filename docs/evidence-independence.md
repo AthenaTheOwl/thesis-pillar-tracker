@@ -7,7 +7,3 @@ The tracker assigns signed standing weights to accepted evidence. Three articles
 The next proposed review should attach an event or source-lineage identifier when accepting evidence. In a synthetic case, a filing and two summaries share one event; a later delivery outcome is another. Display the number of accepted rows and the number of independent event lineages separately, without silently changing the existing standing arithmetic.
 
 Preserve contradictions long enough to resolve scope, timing and authority. A revised completion date can narrow a premise without invalidating the underlying demand claim. A later confirmation should not erase a previously accepted falsifier merely by outnumbering it. The human reviewer should record the resolution and its effective date before producing the next monthly review. This refresh adds a protocol, not autonomous evidence acceptance or new financial verdicts.
-
-## References
-
-- https://github.com/3orionkings/ai-product-team/blob/main/workflows/process-change.md
